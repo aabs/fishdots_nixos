@@ -1,0 +1,6 @@
+abbr --add nxf "nix fix"
+abbr --add nxr "nix repkg"
+abbr --add nxc "nix clean"
+abbr --add nxs "nix search"
+abbr --add nxu "nix update"
+abbr --add nxg "nix upgrade"

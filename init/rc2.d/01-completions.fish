@@ -1,0 +1,7 @@
+complete -c nix -x -a fix -d 'blah'
+complete -c nix -x -a repkg -d 'blah'
+complete -c nix -x -a clean -d 'blah'
+complete -c nix -x -a update -d 'blah'
+complete -c nix -x -a search -d 'blah'
+complete -c nix -x -a upgrade -d 'blah'
+complete -c nix -x -a update -d 'blah'
