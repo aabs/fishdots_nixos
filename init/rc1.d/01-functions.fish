@@ -2,7 +2,7 @@
 
 function nix -d "root command for FishDots Nixos"
   if test 0 -eq (count $argv)
-    problem_help
+    nix_help
     return
   end
   switch $argv[1]
@@ -12,6 +12,8 @@ function nix -d "root command for FishDots Nixos"
       nix_repkg $argv[2]
     case clean
       nix_clean
+    case install
+      nix_install
     case update
       nix_update $argv[2]
     case search
@@ -26,7 +28,15 @@ function nix -d "root command for FishDots Nixos"
 end
 
 function nix_help -d "usage help"
-echo -e "usage:\nblahblah"    
+echo -e "nix usage:\n\n\n"
+echo -e "nix fix\n\tverify and repair store contents\n"
+echo -e "nix repkg\n\tbuild a package\n"
+echo -e "nix clean\n\trun nixos garbage collector\n"
+echo -e "nix search\n\tfind a package\n"
+echo -e "nix upgrade\n\tapply the updated nixos configuration and switch upgrading in the process\n"
+echo -e "nix update\n\tapply the updated nixos configuration and switch\n"
+echo -e "nix install\n\tinstall a package\n"
+
 end
 
 
@@ -58,3 +68,6 @@ function nix_upgrade -d ""
     nixos-rebuild switch --upgrade
 end
 
+function nix_install -a pkg -d "install script"
+  nix-env -i $pkg
+end
