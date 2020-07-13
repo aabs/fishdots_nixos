@@ -9,6 +9,8 @@ define_subcommand_nonevented fdnix search nix_search "find a package"
 define_subcommand_nonevented fdnix upgrade nix_upgrade "apply the updated nixos configuration and switch upgrading in the process"
 define_subcommand_nonevented fdnix update nix_update "apply the update configuration and switch"
 define_subcommand_nonevented fdnix install nix_install "install a package"
+define_subcommand_nonevented fdnix ls nix_ls "list installed packages"
+define_subcommand_nonevented fdnix rm nix_rm "<pkg> remove package"
 
 function nixpaste -d ""
   curl -F "text=<-" http://nixpaste.lbr.uno
@@ -40,4 +42,12 @@ end
 
 function nix_install -a pkg -d "install script"
   nix-env -i $pkg
+end
+
+function nix_ls -d "display a list oif what's installed"
+  nix-env -q
+end
+
+function nix_rm -a pkg -d "remove package"
+  nix-env -e pkg
 end
